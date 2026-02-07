@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For My Love ❤️</title>
+
+  <style>
+    body {
+      background-color: #ffe6eb;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      margin-top: 150px;
+    }
+
+    button {
+      padding: 15px 25px;
+      font-size: 18px;
+      margin: 20px;
+      cursor: pointer;
+      border-radius: 10px;
+      border: none;
+    }
+
+    #noBtn {
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Welcome, my love 💕<br>I have a surprise for you</h1>
+  <button onclick="nextPage()">Next</button>
+
+  <script>
+    function nextPage() {
+      document.body.innerHTML = `
+        <h1>Will you be my Valentine? 💖</h1>
+        <button onclick="yesClicked()">Yes ❤️</button>
+        <button id="noBtn">No 💔</button>
+      `;
+
+      const noBtn = document.getElementById("noBtn");
+      noBtn.addEventListener("mouseover", () => {
+        noBtn.style.left = Math.random() * 80 + "vw";
+        noBtn.style.top = Math.random() * 80 + "vh";
+      });
+    }
+
+    function yesClicked() {
+      document.body.innerHTML = `
+        <h1>Happy Valentine’s Day, dear 💘🌹</h1>
+      `;
+    }
+  </script>
+</body>
+</html>
