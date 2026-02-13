@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Alien 👽</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: #ffd6e0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Floating roses */
+  .rose {
+    position: absolute;
+    font-size: 24px;
+    animation: floatUp linear infinite;
+    opacity: 0.8;
+    z-index: 0;
+  }
+
+  @keyframes floatUp {
+    from { transform: translateY(110vh); }
+    to { transform: translateY(-10vh); }
+  }
+
+  /* Content box */
+  .box {
+    background: white;
+    padding: 35px;
+    border-radius: 22px;
+    text-align: center;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    z-index: 2;
+    animation: fadeIn 1.2s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  h1 {
+    color: #ff4d6d;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  button {
+    padding: 12px 24px;
+    font-size: 18px;
+    margin: 15px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+  }
+
+  .yes {
+    background: #ff4d6d;
+    color: white;
+  }
+
+  .no {
+    background: #999;
+    color: white;
+    position: absolute;
+  }
+
+  .small {
+    font-size: 14px;
+    opacity: 0.7;
+  }
+
+  img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 20px;
+    margin-top: 15px;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="box" id="content">
+  <h1>Welcome, my Alien 👽❤️</h1>
+  <p>Your Petni 👻 made this little world just for you…<br>
+     Take a breath, smile, and click next 🌹</p>
+  <p class="small">Made with love, by your Petni 👻</p>
+  <button class="yes" onclick="page2()">Next →</button>
+</div>
+
+<script>
+  /* Floating roses */
+  for (let i = 0; i < 30; i++) {
+    let rose = document.createElement("div");
+    rose.className = "rose";
+    rose.innerHTML = "🌹";
+    rose.style.left = Math.random() * 100 + "vw";
+    rose.style.animationDuration = (5 + Math.random() * 6) + "s";
+    document.body.appendChild(rose);
+  }
+
+  function page2() {
+    content.innerHTML = `
+      <h1>💖💖💖</h1>
+      <p>
+        Alien 👽, you make everything feel a little easier
+You bring calm when my mind is loud
+And comfort when Petni 👻 needs it most 💕.
+With you, Alien 👽,Petni 👻 feels safe being herself 💕
+      </p>
+      <button class="yes" onclick="page3()">Next →</button>
+    `;
+  }
+
+  function page3() {
+    content.innerHTML = `
+      <h1>Alien 👽…</h1>
+      <p>Petni 👻 has one important question 😌</p>
+      <h2>Will you be my Valentine? 💘</h2>
+      <button class="yes" onclick="page4()">Yes ❤️</button>
+      <button class="no" id="noBtn">No 💔</button>
+      <p class="small">(The “No” button is scared of Alien 👽 😉)</p>
+    `;
+
+    const noBtn = document.getElementById("noBtn");
+    noBtn.addEventListener("mouseover", () => {
+      noBtn.style.left = Math.random() * 70 + "vw";
+      noBtn.style.top = Math.random() * 70 + "vh";
+    });
+  }
+
+  function page4() {
+    content.innerHTML = `
+      <h1>Happy Valentine’s Day 💕</h1>
+      <p>
+        My Alien 👽❤️<br>
+        Thank you for choosing me.<br>
+        Petni 👻 chooses you —<br>
+        Today, tomorrow, and always 🌹
+      </p>
+      <button class="yes" onclick="page5()">One last thing 💌</button>
+    `;
+  }
+
+  function page5() {
+    content.innerHTML = `
+      <h1>This is Petni 👻 when Alien 👽 smiles 🥺💖</h1>
+      <img src="cute.jpg" alt="Cute ending image">
+      <p class="small">Forever yours 💕</p>
+    `;
+  }
+</script>
+
+</body>
+</html>
